@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Sudoku</title>
+    <style>
+      .cell {
+        width : 50px;
+      }
+      .valid {
+        background-color: #b6d7a8;
+      }
+      .error {
+        background-color: #ea9999;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Sudoku</h1>
+
+    <div id="sudoku">
+
+    </div>
+    <div id="message">
+    </div>
+  </body>
+  <script src="src/board_generator.js"></script>
+  <script src="src/sudoku.js"></script>
+  <script src="src/sudoku_use_case.js"></script>
+  <script src="src/web_presenter.js"></script>
+  <script src="src/sudoku_controller.js"></script>
+  <script>
+    BoardGenerator.createBoard('div#sudoku')
+    let webPresenter = new WebPresenter();
+    let useCase = new SudokuUseCase(webPresenter);
+    let sudokuController = new SudokuController(useCase);
+  </script>
+</html>
